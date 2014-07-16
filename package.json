@@ -1,0 +1,27 @@
+{
+  "name": "gerar-cpf",
+  "version": "0.0.0",
+  "description": "Gerador de CPF",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:guilhermehn/gerar-cpf.git"
+  },
+  "keywords": [
+    "cpf",
+    "gerar",
+    "gerador"
+  ],
+  "author": "Guilherme Nagatomo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guilhermehn/gerar-cpf/issues"
+  },
+  "homepage": "https://github.com/guilhermehn/gerar-cpf",
+  "dependencies": {
+    "fundash": "^0.1.0"
+  }
+}
