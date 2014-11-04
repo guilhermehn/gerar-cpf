@@ -15,4 +15,18 @@ describe('gerar-cpf', function () {
       assert(validarCpf(cpf));
     });
   });
+
+  describe('mask argument', function () {
+    it('should output a masked cpf if true is passed', function () {
+      assert(/\d{3}\.\d{3}\.\d{3}-\d{2}/.test(gerarCpf(true)));
+    });
+
+    it('should accept a mask argument', function () {
+      assert(/\d{4}\.\d{4}\.\d{3}/.test(gerarCpf('xxxx.xxxx.xxx')));
+    });
+
+    it('should throw an error if the mask contains less than 11 placeholders', function () {
+      assert.throws(gerarCpf.bind(null, 'xxxxxxxxxx'));
+    });
+  });
 });
