@@ -6,11 +6,11 @@ Gerador de CPF
 
 ## Uso:
 
-    var gerarCpf = require('gerar-cpf')
-      , listaCpf = []
+    var gerarCpf = require('gerar-cpf');
+    var listaCpf = []
 
     while (listaCpf.length < 100) {
-      listaCpf[listaCpf.length] = gerarCpf()
+      listaCpf[listaCpf.length] = gerarCpf();
     }
 
 ## Licensa
