@@ -28,5 +28,13 @@ describe('gerar-cpf', function () {
     it('should throw an error if the mask contains less than 11 placeholders', function () {
       assert.throws(gerarCpf.bind(null, 'xxxxxxxxxx'));
     });
+
+    it('should accept a placeholder argument', function () {
+      assert(/\d{3}x\d{3}x\d{3}x\d{2}/.test(gerarCpf('kkkxkkkxkkkxkk', 'k')));
+      assert(/\d{3}x\d{3}x\d{3}x\d{2}/.test(gerarCpf('___x___x___x__', '_')));
+      assert(/\d{3} \d{3} \d{3} \d{2}/.test(gerarCpf('kkk kkk kkk kk', 'k')));
+      assert(/\d{3} \d{3} \d{3} \d{2}/.test(gerarCpf('kkk kkk kkk kk', 'k')));
+      assert(/\d{3} \d{3} \d{3} \d{2}/.test(gerarCpf('<><><> <><><> <><><> <><>', '<>')));
+    });
   });
 });
