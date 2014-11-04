@@ -1,1 +1,1 @@
-module.exports = require('./lib/gerarCpf')
+module.exports = require('./lib/gerarCpf');
