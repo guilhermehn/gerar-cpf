@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint .",
     "docs": "jsdoc2md index.js > API_REFERENCE.md",
-    "test": "npm run lint && nyc check-coverage --lines 100 --functions 100 --branches 100 --reporter=html --reporter=text mocha"
+    "test": "npm run lint && nyc --reporter=html --reporter=text mocha",
+    "posttest": "nyc check-coverage --lines 100 --functions 100 --branches 100"
   },
   "repository": {
     "type": "git",
