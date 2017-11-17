@@ -6,11 +6,11 @@
   "scripts": {
     "lint": "eslint .",
     "docs": "jsdoc2md index.js > API_REFERENCE.md",
-    "test": "npm run lint && nyc --reporter=html --reporter=text mocha"
+    "test": "npm run lint && nyc check-coverage --lines 100 --functions 100 --branches 100 --reporter=html --reporter=text mocha"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:guilhermehn/gerar-cpf.git"
+    "url": "git+ssh://git@github.com/guilhermehn/gerar-cpf.git"
   },
   "keywords": [
     "cpf",
@@ -29,5 +29,9 @@
     "mocha": "^4.0.1",
     "nyc": "^11.3.0",
     "validar-cpf": "^1.1.2"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {}
 }
