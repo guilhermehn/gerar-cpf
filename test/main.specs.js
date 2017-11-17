@@ -16,8 +16,8 @@ describe('gerar-cpf', () => {
 	})
 
 	describe('mask argument', () => {
-		it('should output a masked cpf if true is passed', () => {
-			assert(/\d{3}\.\d{3}\.\d{3}-\d{2}/.test(gerarCpf(true)))
+		it('should not output a masked cpf by default', () => {
+			assert(/\d{11}/.test(gerarCpf()))
 		})
 
 		it('should accept a mask argument', () => {
@@ -30,16 +30,18 @@ describe('gerar-cpf', () => {
 
 		it('should accept a placeholder argument', () => {
 			assert(
-				/\d{3}x\d{3}x\d{3}x\d{2}/.test(gerarCpf('kkkxkkkxkkkxkk', 'k'))
+				/\d{3}x\d{3}x\d{3}x\d{2}/.test(gerarCpf('aaabaaabaaabaa', 'a'))
 			)
 			assert(
-				/\d{3}x\d{3}x\d{3}x\d{2}/.test(gerarCpf('___x___x___x__', '_'))
+				/\d{3}.\d{3}.\d{3}-\d{2}/.test(
+					gerarCpf('(___.___.___-__)', '_')
+				)
 			)
 			assert(
-				/\d{3} \d{3} \d{3} \d{2}/.test(gerarCpf('kkk kkk kkk kk', 'k'))
+				/\d{3} \d{3} \d{3} \d{2}/.test(gerarCpf('nnn nnn nnn nn', 'n'))
 			)
 			assert(
-				/\d{3} \d{3} \d{3} \d{2}/.test(gerarCpf('kkk kkk kkk kk', 'k'))
+				/\d{3} \d{3} \d{3} \d{2}/.test(gerarCpf('nnn nnn nnn nn', 'n'))
 			)
 			assert(
 				/\d{3} \d{3} \d{3} \d{2}/.test(
