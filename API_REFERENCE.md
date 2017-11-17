@@ -1,14 +1,14 @@
 <a name="gerarCPF"></a>
 
-## gerarCPF(mask, placeholder) ⇒ <code>String</code>
+## gerarCPF([mask], [placeholder]) ⇒ <code>String</code>
 Gera números de CPF válidos
 
 **Kind**: global function  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| mask | <code>String</code> |  | Máscara a ser aplicada no número gerado |
-| placeholder | <code>String</code> | <code>&#x27;x&#x27;</code> | Caratér placeholder usado na máscara |
+| [mask] | <code>String</code> |  | Máscara a ser aplicada no número gerado |
+| [placeholder] | <code>String</code> | <code>&#x27;x&#x27;</code> | Caratér placeholder usado na máscara |
 
 **Example**  
 ```js

@@ -10,8 +10,8 @@ const sumNumbers = xs =>
 
 /**
  * Gera números de CPF válidos
- * @param {String} mask - Máscara a ser aplicada no número gerado
- * @param {String} placeholder='x' - Caratér placeholder usado na máscara
+ * @param {String} [mask] - Máscara a ser aplicada no número gerado
+ * @param {String} [placeholder='x'] - Caratér placeholder usado na máscara
  * @return {String}
  * @example
  * gerarCPF()
