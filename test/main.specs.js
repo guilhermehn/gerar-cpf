@@ -30,7 +30,7 @@ describe('gerar-cpf', () => {
 
 		it('should accept a placeholder argument', () => {
 			assert(
-				/\d{3}x\d{3}x\d{3}x\d{2}/.test(gerarCpf('aaabaaabaaabaa', 'a'))
+				/\d{3}b\d{3}b\d{3}b\d{2}/.test(gerarCpf('aaabaaabaaabaa', 'a'))
 			)
 			assert(
 				/\d{3}.\d{3}.\d{3}-\d{2}/.test(
