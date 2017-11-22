@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint .",
     "docs": "jsdoc2md index.js > API_REFERENCE.md",
-    "test": "npm run lint && nyc --reporter=html --reporter=text mocha",
+    "pretest": "npm run lint",
+    "test": "nyc --reporter=html --reporter=text-lcov mocha | coveralls",
     "posttest": "nyc check-coverage --lines 100 --functions 100 --branches 100"
   },
   "repository": {
@@ -25,9 +26,11 @@
   },
   "homepage": "https://github.com/guilhermehn/gerar-cpf",
   "devDependencies": {
+    "coveralls": "^3.0.0",
     "eslint": "^4.11.0",
     "jsdoc-to-markdown": "^3.0.2",
     "mocha": "^4.0.1",
+    "mocha-lcov-reporter": "^1.3.0",
     "nyc": "^11.3.0",
     "validar-cpf": "^1.1.2"
   },
