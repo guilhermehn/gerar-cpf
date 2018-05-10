@@ -1,5 +1,7 @@
 # gerar-cpf
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/guilhermehn/gerar-cpf.svg)](https://greenkeeper.io/)
+
 > Gerador de CPF
 
 [![Build Status](https://travis-ci.org/guilhermehn/gerar-cpf.svg?branch=master)](https://travis-ci.org/guilhermehn/gerar-cpf)
