@@ -1,6 +1,6 @@
 {
   "name": "gerar-cpf",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Gerador de CPF",
   "main": "index.js",
   "scripts": {
