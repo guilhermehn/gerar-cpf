@@ -1,12 +1,12 @@
-'use strict'
+'use strict';
 
-const rng = x => Math.round(Math.random() * x)
-const mod = (x, y) => Math.round(x - Math.floor(x / y) * y)
+const rng = x => Math.round(Math.random() * x);
+const mod = (x, y) => Math.round(x - Math.floor(x / y) * y);
 const sumNumbers = xs =>
 	xs
 		.slice()
 		.reverse()
-		.reduce((acc, a, b) => acc + a * (b + 2), 0)
+		.reduce((acc, a, b) => acc + a * (b + 2), 0);
 
 /**
  * Gera números de CPF válidos
@@ -21,38 +21,38 @@ const sumNumbers = xs =>
  * gerarCPF('___.___.___-__', '_')
  */
 const gerarCPF = (mask, placeholder = 'x') => {
-	const numbers = []
+	const numbers = [];
 
 	while (numbers.length < 9) {
-		numbers[numbers.length] = rng(9)
+		numbers[numbers.length] = rng(9);
 	}
 
 	while (numbers.length < 11) {
-		let last = 11 - mod(sumNumbers(numbers), 11)
+		let last = 11 - mod(sumNumbers(numbers), 11);
 
 		if (last > 9) {
-			last = 0
+			last = 0;
 		}
 
-		numbers[numbers.length] = last
+		numbers[numbers.length] = last;
 	}
 
-	const result = numbers.join('')
+	const result = numbers.join('');
 
 	if (!mask) {
-		return result
+		return result;
 	}
 
 	if (mask.match(new RegExp(placeholder, 'g')).length < 11) {
-		throw new Error('The CPF mask should contain 11 placeholders')
+		throw new Error('The CPF mask should contain 11 placeholders');
 	}
 
-	const placeholderRegex = new RegExp(placeholder)
+	const placeholderRegex = new RegExp(placeholder);
 	for (let i = 0; i < 11; i++) {
-		mask = mask.replace(placeholderRegex, result[i])
+		mask = mask.replace(placeholderRegex, result[i]);
 	}
 
-	return mask
-}
+	return mask;
+};
 
-module.exports = gerarCPF
+module.exports = gerarCPF;
