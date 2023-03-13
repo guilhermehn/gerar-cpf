@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "mocha"
+    "test": "mocha",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -23,24 +24,18 @@
     "url": "https://github.com/guilhermehn/gerar-cpf/issues"
   },
   "homepage": "https://github.com/guilhermehn/gerar-cpf",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.js": [
       "prettier --write",
       "eslint --fix",
-      "git add",
       "npm t"
     ]
   },
   "devDependencies": {
     "chai": "^4.3.7",
     "eslint": "^8.36.0",
-    "husky": "^5.1.3",
-    "lint-staged": "^13.1.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
     "mocha": "^10.2.0",
     "prettier": "^2.0.4",
     "validar-cpf": "^2.1.2"
