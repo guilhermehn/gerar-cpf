@@ -38,6 +38,6 @@
     "lint-staged": "^13.2.0",
     "mocha": "^10.2.0",
     "prettier": "^2.0.4",
-    "validar-cpf": "^2.1.2"
+    "validar-cpf": "^3.0.0"
   }
 }
