@@ -1,35 +1,38 @@
 const validarCpf = require('validar-cpf');
 const gerarCpf = require('..');
-const { expect } = require('chai');
+const { describe, it } = require('node:test');
+const assert = require('node:assert/strict');
 
 describe('gerar-cpf', () => {
 	it('should generate valid cpf', () => {
 		for (let i = 0; i < 100; i++) {
-			expect(validarCpf(gerarCpf())).equal(true);
+			assert(validarCpf(gerarCpf()));
 		}
 	});
 
 	describe('mask argument', () => {
 		it('should not output a masked cpf by default', () => {
-			expect(gerarCpf()).match(/\d{11}/);
+			assert.match(gerarCpf(), /\d{11}/);
 		});
 
 		it('should accept a mask argument', () => {
-			expect(gerarCpf('xxxx.xxxx.xxx')).match(/\d{4}\.\d{4}\.\d{3}/);
+			assert.match(gerarCpf('xxxx.xxxx.xxx'), /\d{4}\.\d{4}\.\d{3}/);
 		});
 
 		it('should throw an error if the mask contains less than 11 placeholders', () => {
-			expect(() => gerarCpf('xxxxxxxxxx')).throw();
+			assert.throws(() => gerarCpf('xxxxxxxxxx'));
 		});
 
 		it('should accept a placeholder argument', () => {
-			expect(gerarCpf('aaabaaabaaabaa', 'a')).match(/\d{3}b\d{3}b\d{3}b\d{2}/);
-			expect(gerarCpf('(___.___.___-__)', '_')).match(
+			assert.match(gerarCpf('aaabaaabaaabaa', 'a'), /\d{3}b\d{3}b\d{3}b\d{2}/);
+			assert.match(
+				gerarCpf('(___.___.___-__)', '_'),
 				/\d{3}.\d{3}.\d{3}-\d{2}/,
 			);
-			expect(gerarCpf('nnn nnn nnn nn', 'n')).match(/\d{3} \d{3} \d{3} \d{2}/);
-			expect(gerarCpf('nnn nnn nnn nn', 'n')).match(/\d{3} \d{3} \d{3} \d{2}/);
-			expect(gerarCpf('<><><> <><><> <><><> <><>', '<>')).match(
+			assert.match(gerarCpf('nnn nnn nnn nn', 'n'), /\d{3} \d{3} \d{3} \d{2}/);
+			assert.match(gerarCpf('nnn nnn nnn nn', 'n'), /\d{3} \d{3} \d{3} \d{2}/);
+			assert.match(
+				gerarCpf('<><><> <><><> <><><> <><>', '<>'),
 				/\d{3} \d{3} \d{3} \d{2}/,
 			);
 		});
