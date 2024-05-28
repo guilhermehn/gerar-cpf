@@ -1,43 +1,36 @@
 {
-  "name": "gerar-cpf",
-  "version": "3.0.0",
-  "description": "Gerador de CPF",
-  "main": "index.js",
-  "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "mocha",
-    "prepare": "husky"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/guilhermehn/gerar-cpf.git"
-  },
-  "keywords": [
-    "cpf",
-    "gerar",
-    "gerador"
-  ],
-  "author": "Guilherme Nagatomo",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/guilhermehn/gerar-cpf/issues"
-  },
-  "homepage": "https://github.com/guilhermehn/gerar-cpf",
-  "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "eslint --fix",
-      "npm t"
-    ]
-  },
-  "devDependencies": {
-    "chai": "^4.3.7",
-    "eslint": "^8.36.0",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.5",
-    "mocha": "^10.2.0",
-    "prettier": "^3.0.0",
-    "validar-cpf": "^3.1.0"
-  }
+	"name": "gerar-cpf",
+	"version": "3.0.0",
+	"description": "Gerador de CPF",
+	"main": "index.js",
+	"scripts": {
+		"lint": "biome check .",
+		"pretest": "npm run lint",
+		"test": "mocha",
+		"prepare": "husky"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/guilhermehn/gerar-cpf.git"
+	},
+	"keywords": ["cpf", "gerar", "gerador"],
+	"author": "Guilherme Nagatomo",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/guilhermehn/gerar-cpf/issues"
+	},
+	"homepage": "https://github.com/guilhermehn/gerar-cpf",
+	"lint-staged": {
+		"*": [
+			"biome check --no-errors-on-unmatched --files-ignore-unknown=true --apply"
+		]
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.7.3",
+		"chai": "^4.3.7",
+		"husky": "^9.0.11",
+		"lint-staged": "^15.2.5",
+		"mocha": "^10.2.0",
+		"validar-cpf": "^3.1.0"
+	}
 }

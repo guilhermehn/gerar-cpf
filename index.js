@@ -1,8 +1,6 @@
-'use strict';
-
-const rng = x => Math.round(Math.random() * x);
+const rng = (x) => Math.round(Math.random() * x);
 const mod = (x, y) => Math.round(x - Math.floor(x / y) * y);
-const sumNumbers = xs =>
+const sumNumbers = (xs) =>
 	xs
 		.slice()
 		.reverse()
@@ -37,22 +35,22 @@ const gerarCPF = (mask, placeholder = 'x') => {
 		numbers[numbers.length] = last;
 	}
 
-	const result = numbers.join('');
-
 	if (!mask) {
-		return result;
+		return numbers.join('');
 	}
 
 	if (mask.match(new RegExp(placeholder, 'g')).length < 11) {
 		throw new Error('The CPF mask should contain 11 placeholders');
 	}
 
+	let result = mask;
 	const placeholderRegex = new RegExp(placeholder);
+
 	for (let i = 0; i < 11; i++) {
-		mask = mask.replace(placeholderRegex, result[i]);
+		result = result.replace(placeholderRegex, numbers[i]);
 	}
 
-	return mask;
+	return result;
 };
 
 module.exports = gerarCPF;

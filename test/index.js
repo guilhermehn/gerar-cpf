@@ -3,12 +3,10 @@ const gerarCpf = require('..');
 const { expect } = require('chai');
 
 describe('gerar-cpf', () => {
-	const cpfs = new Array(100).fill(0).map(() => gerarCpf());
-
-	cpfs.forEach((cpf) => {
-		it('should generate valid cpf', () => {
-			expect(validarCpf(cpf)).equal(true);
-		});
+	it('should generate valid cpf', () => {
+		for (let i = 0; i < 100; i++) {
+			expect(validarCpf(gerarCpf())).equal(true);
+		}
 	});
 
 	describe('mask argument', () => {
@@ -27,12 +25,12 @@ describe('gerar-cpf', () => {
 		it('should accept a placeholder argument', () => {
 			expect(gerarCpf('aaabaaabaaabaa', 'a')).match(/\d{3}b\d{3}b\d{3}b\d{2}/);
 			expect(gerarCpf('(___.___.___-__)', '_')).match(
-				/\d{3}.\d{3}.\d{3}-\d{2}/
+				/\d{3}.\d{3}.\d{3}-\d{2}/,
 			);
 			expect(gerarCpf('nnn nnn nnn nn', 'n')).match(/\d{3} \d{3} \d{3} \d{2}/);
 			expect(gerarCpf('nnn nnn nnn nn', 'n')).match(/\d{3} \d{3} \d{3} \d{2}/);
 			expect(gerarCpf('<><><> <><><> <><><> <><>', '<>')).match(
-				/\d{3} \d{3} \d{3} \d{2}/
+				/\d{3} \d{3} \d{3} \d{2}/,
 			);
 		});
 	});
