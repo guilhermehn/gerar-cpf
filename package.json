@@ -1,7 +1,7 @@
 {
 	"name": "gerar-cpf",
 	"version": "3.0.0",
-	"description": "Gerador de CPF",
+	"description": "Generate random Brazilian CPF document numbers.",
 	"main": "index.js",
 	"scripts": {
 		"pretest": "biome check .",
@@ -12,7 +12,7 @@
 		"type": "git",
 		"url": "git+ssh://git@github.com/guilhermehn/gerar-cpf.git"
 	},
-	"keywords": ["cpf", "gerar", "gerador"],
+	"keywords": ["cpf", "gerar", "gerador", "generate", "random", "Brazilian"],
 	"author": "Guilherme Nagatomo",
 	"license": "MIT",
 	"bugs": {
