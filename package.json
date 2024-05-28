@@ -1,6 +1,6 @@
 {
 	"name": "gerar-cpf",
-	"version": "3.0.0",
+	"version": "3.1.0",
 	"description": "Generate random Brazilian CPF document numbers.",
 	"main": "index.js",
 	"scripts": {
