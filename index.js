@@ -1,5 +1,17 @@
+/**
+ * @param {number} x
+ **/
 const rng = (x) => Math.round(Math.random() * x);
+
+/**
+ * @param {number} x
+ * @param {number} y
+ **/
 const mod = (x, y) => Math.round(x - Math.floor(x / y) * y);
+
+/**
+ * @param {number[]} xs
+ */
 const sumNumbers = (xs) =>
 	xs
 		.slice()
@@ -7,15 +19,15 @@ const sumNumbers = (xs) =>
 		.reduce((acc, a, b) => acc + a * (b + 2), 0);
 
 /**
- * Gera números de CPF válidos
- * @param {String} [mask] - Máscara a ser aplicada no número gerado
- * @param {String} [placeholder='x'] - Caratér placeholder usado na máscara
- * @return {String}
+ * Generate random Brazilian CPF document numbers.
+ * @param {String} [mask] - Mask to be used in the resulting string.
+ * @param {String} [placeholder='x'] - Character to be replaced by numbers in the mask.
+ * @return {String} A CPF document number in string format.
  * @example
  * gerarCPF()
- * @example <caption>Usando máscaras</caption>
+ * @example <caption>Using masks</caption>
  * gerarCPF('xxx.xxx.xxx-xx')
- * @example <caption>Usando máscaras com placeholder customizado</caption>
+ * @example <caption>Using mask placeholder</caption>
  * gerarCPF('___.___.___-__', '_')
  */
 const gerarCPF = (mask, placeholder = 'x') => {
